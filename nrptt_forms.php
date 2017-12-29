@@ -1,5 +1,20 @@
 <?php 
 
+function nrptt_join_stripe_from($args) {
+    $output = '<form id="payment-form" action="buy.php" method="POST"><div id="payment-errors"></div>';
+    $output .= '<label>Card Number</label>
+<input type="text" size="20" autocomplete="off">
+<span>Enter the number without spaces or hyphens.</span>
+<label>CVC</label>
+<input type="text" size="4" autocomplete="off">
+<label>Expiration (MM/YYYY)</label>
+<input type="text" size="2">
+<span> / </span>
+<input type="text" size="4">';
+    $output .= '</form>';
+    return $output;
+}
+
 function nrptt_join_paypal_form($args) {
 	 $kind = 'text';
 	 $variables = array(
@@ -42,9 +57,9 @@ function nrptt_join_paypal_form($args) {
 	 $output .= '    <input id="ppf-' . $key . '" name="' . $key . '" type="' . $kind . '" value="'. $value . '" />';
 	 } 
     $paypal_payment_platform = get_option('paypal_payment_platform');
-    $paypal_url = "http://sandbox.paypal.com/cgi-bin/webscr";
+    $paypal_url = "https://sandbox.paypal.com/cgi-bin/webscr";
     if ( $paypal_payment_platform === 'PROD' ) {
-        $paypal_url = "http://www.paypal.com/cgi-bin/webscr";
+        $paypal_url = "https://www.paypal.com/cgi-bin/webscr";
     }
 	 $output = '<form id="paypal-payment-form"
          class="nrptt-default-skyblue" 

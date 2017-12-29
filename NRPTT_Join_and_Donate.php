@@ -56,6 +56,7 @@ function nrptt_form_join($args) {
   $output = ob_get_contents();
   ob_end_clean();
   $output .= nrptt_join_paypal_form($args);
+  $output .= nrptt_join_stripe_from($args);
   // $output .= nrptt_join_post_form($args);
   return $output;
 };
@@ -257,6 +258,8 @@ function nrptt_plugin_enqueue_jquery() {
 //    wp_enqueue_script( 'card_js', 'https://cdnjs.cloudflare.com/ajax/libs/card/1.3.1/js/card.min.js');
 //    wp_enqueue_script( 'nrptt_sb_js', NRPTT_JAD_PLUGIN_URL . '/nrptt-join/nrptt-default-skyblue.js' );
     wp_enqueue_script( 'nrptt_js', NRPTT_JAD_PLUGIN_URL . '/nrptt-join/nrptt-join.js' );
+    wp_enqueue_script( 'stripe_js', 'https://js.stripe.com/v2/' );
+
 }
 
 
