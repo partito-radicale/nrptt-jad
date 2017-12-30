@@ -1,4 +1,8 @@
 
+// $().ready(function($) {
+//   $('#i_form').validate();
+// });
+
 $(function() {
 
   // define functions
@@ -13,42 +17,90 @@ $(function() {
     $($to).trigger('change');
   };
 
-  var fill_name = function() {
-    var $fn = $('#i_last_name').val()  + ", " + $('#i_first_name').val() ;
+  var fill_person_info = function() {
+    var $fn = $('#i_last_name').val()  + ", " + $('#i_first_name').val() + "|" + $("#i_country").val() + "|" + $("#i_state").val() + "|" + $("#i_city").val() + "|" + $("#i_zip").val() + "|" + $("#i_address1").val() + "|" + $("#i_address2").val() ;
     fill($fn,'#ppf-os0'); 
-    fill($fn,'#ppf-address_name'); 
   };
 
-  var fill_membership = function() { 
-    var $fn = $("#i_address1").val() + "|" + $("#i_address2").val() + "|" + $("#i_zip").val() + "|" + $("#i_city").val() + "|" + $("#i_state").val() + "|" + $("#i_country").val()  ;
+  var fill_name = function() {
+    var $fn = $('#i_first_name').val()  + " " + $('#i_last_name').val() ;
+    fill($fn,'#ppf-address_name'); 
+    fill($fn,'#fullstripe-custom-input__join__1');
+  };
+
+  var fill_person_contacts = function() { 
+    var $fn = "TEL: "  + $("#i_phone").val() + " | EMAIL: " + $("#i_email").val();  
     fill($fn,'#ppf-os1');
   };
 
   var fill_custom = function() {
-   var $fn = "TEL: " + $("#i_countrycode").val() + " " + $("#i_phone").val() + " | EMAIL: " + $("#i_email").val(); 
+    if ( $("#i_show").is(':checked') ) {
+      $show = "X";
+    } else {
+      $show = "O";
+    };
+    var $fn = $show  + $("#i_message").val() ;
     fill($fn,'#ppf-custom');
   };
 
-//   $('.i_year').i_year();
+  var fill_item = function() {
+    var $kind = "CUST";
+    if ( $("#i_kind").val()  === "1" ) {
+      $kind = "RACC";
+    } else {
+      $kind = "MIN";
+    };
+    if ( $("#i_show").is(':checked') ) {
+      $show = "SHOW";
+    } else {
+      $show = "NO-SHOW";
+    };
+    var $item = "Membership: " + $("#i_year").val() + " " + $kind + "(" + $("#amount").val() + " EUR )" + " " + $("#i_country").val() + " | " + $("#i_first_name").val() + " | " + $("#i_last_name").val() + "| " + $show;
+    fill( $item ,'#ppf-item_name');
+  };
 
+  // Fill Inner forms
+  var copy_to_inner_forms = function() {
+    fill_name();
+    fill_person_info();
+    fill_person_contacts();
+    fill_item();
+    fill_custom();
+    fill($('#i_email').val(),'#ppf-email'); 
+    fill($('#i_email').val(),'input#fullstripe_email__join');
+    fill($('#i_phone').val(),'#ppf-phone'); 
+    fill($('#i_phone').val(),'input#fullstripe-custom-input__join__2');
+    fill($('#i_address1').val(),'#ppf-address1'); 
+    fill($('#i_address1').val(),'fullstripe_address_line1__join'); 
+    fill($('#i_address2').val(),'#ppf-address2'); 
+    fill($('#i_address2').val(),'fullstripe_address_line2__join'); 
+    fill($('#i_state').val(),'#ppf-state'); 
+    fill($('#i_state').val(),'fullstripe_address_state__join'); 
+    fill($('#i_zip').val(),'#ppf-zip'); 
+    fill($('#i_zip').val(),'fullstripe_address_zip__join'); 
+    fill($('#i_city').val(),'#ppf-city'); 
+    fill($('#i_city').val(),'fullstripe_address_city__join'); 
+    fill($('#i_country').val(),'#ppf-country'); 
+    fill($('#i_country').val(),'fullstripe-address-country__join'); 
+    fill($('#i_countrycode').val(),'#ppf-countrycode');
+    // CC info
+    fill($('#i_input1').val(),'#fullstripe_name__join');  
+    fill($('#i_input2').val(),'input[data-stripe=number]'); 
+    fill($('#i_input3').val(),'input[data-stripe=cvc]');  
+    fill($('#i_cc_month').val(),'select[data-stripe=exp-month]');  
+    fill($('#i_cc_year').val(),'select[data-stripe=exp-year]');     
+  };
 
   // hide paying elements
   $("div.pay_with_credit_card").hide();
-  $("#amount-less").hide();
-  // $("#lower-header").hide();
-  // $("div.pre_join").hide();
-  // $("div.stripe_join").hide();
-  // $("div.stripe_donate").hide();
-  // $("#fullstripe-custom-div__join__3").hide();
-  // $("#fullstripe-custom-div__donate__2").hide();
-  // $("#fullstripe-custom-div__donate__3").hide();
-  // $("#fullstripe_address_state").val("--");
-  // $("#country").val("");
-  // $("#kind").val("1");
-  // $("#fullstripe_custom_amount").val("590");
-  // $("#fullstripe-custom-input__join__3").val("2017");
-  // $("#fullstripe-custom-input__donate__2").val("YES");
-  // $("div#placeholder").replaceWith($("form.pre2"));
+  $("div.pay_with_paypal").hide();
+  $("div.stripe_join_block").show();
+  $("div.paypal_join_block").show();
+  $("div.stripe_donate").hide();
+
+  // Define initial values
+  $('#i_show').prop( "checked", true ).trigger('change');
+
   var $QUOTE = {
     "0": {
       "AE": 200,
@@ -432,29 +484,33 @@ $(function() {
     }
   };
 
-
-  fill('exedre@gmail.com','#ppf-email');
-  
   // Show parts of form
   $(".show_credit_card").click(function() {
     $("section.page-heading").hide();             // ---------------
+    $("div.pay_with_paypal").hide();
     $("div.pay_with_credit_card").show();
-    $("button.show_credit_card").hide();
+    $("button.show_credit_card").prop('disabled',true).css('opacity',0.5);
+    $("button.show_paypal").prop('disabled',false).css('opacity',1.0);
+  });
+
+  $(".show_paypal").click(function() {
+    $("section.page-heading").hide();             // ---------------
+    $("div.pay_with_paypal").show();
+    $("div.pay_with_credit_card").hide();
+    $("button.show_paypal").prop('disabled',true).css('opacity',0.5);
+    $("button.show_credit_card").prop('disabled',false).css('opacity',1.0);
   });
 
   // Submit payments
   $("#submit-pay-pp").click(function() {
-    var $kind = "CUST";
-    if ( $("#i_kind").val()  === "1" ) {
-      $kind = "RACC";
-    } else {
-      $kind = "MIN";
-    };
-    var $item = "Membership: " + $("#i_year").val() + " " + $kind + "(" + $("#amount").val() + " EUR )" + " " + $("#i_country").val() + " | " + $("#i_first_name").val() + " | " + $("#i_last_name").val() ;
-    fill( $item ,'#ppf-item_name');
-    fill_membership();
-    fill_custom();
-    $('#i_form').validate();
+    // $('#i_form').validate();
+    copy_to_inner_forms();
+    // $("form#paypal-payment-form").submit();
+  });
+
+  // Submit payments
+  $("#submit-pay-stripe").click(function() {
+    copy_to_inner_forms();
     // $("form#paypal-payment-form").submit();
   });
 
@@ -517,24 +573,28 @@ $(function() {
       }
     };
     fill($(this).val(),'#ppf-amount');
+    fill($(this).val(),'#fullstripe-custom-amount__join');
     $('#submit-pay-pp').text('Pay with Paypal — ('+ $(this).val() + ' € )').trigger('change');    
   });
 
-  $('#i_email').change(function() { fill($(this).val(),'#ppf-email');  });
-  $('#i_phone').change(function() { fill($(this).val(),'#ppf-phone');  });
+  $('#i_email').change(function() { fill($(this).val(),'#ppf-email'); fill($(this).val(),'input#fullstripe_email__join');   });
+  $('#i_phone').change(function() { fill($(this).val(),'#ppf-phone'); fill($(this).val(),'input#fullstripe-custom-input__join__2');   });
   $('#i_first_name').change(function() { fill_name();  });
   $('#i_first_name').change(function() { fill($(this).val(),'#ppf-first_name');  });
   $('#i_last_name').change(function() { fill_name();  });
   $('#i_last_name').change(function() { fill($(this).val(),'#ppf-last_name');  });
-  $('#i_address1').change(function() { fill($(this).val(),'#ppf-address1');  });
-  $('#i_address2').change(function() { fill($(this).val(),'#ppf-address2');  });
-  $('#i_state').change(function() { fill($(this).val(),'#ppf-state');  });
-  $('#i_zip').change(function() { fill($(this).val(),'#ppf-zip');  });
-  $('#i_city').change(function() { fill($(this).val(),'#ppf-city');  });
-  $('#i_country').change(function() { fill($(this).val(),'#ppf-country');  });
+  $('#i_address1').change(function() { fill($(this).val(),'#ppf-address1');  fill($(this).val(),'fullstripe_address_line1__join')}); 
+  $('#i_address2').change(function() { fill($(this).val(),'#ppf-address2');  fill($(this).val(),'fullstripe_address_line2__join')}); 
+  $('#i_state').change(function() { fill($(this).val(),'#ppf-state');  fill($(this).val(),'fullstripe_address_state__join')}); 
+  $('#i_zip').change(function() { fill($(this).val(),'#ppf-zip');  fill($(this).val(),'fullstripe_address_zip__join')}); 
+  $('#i_city').change(function() { fill($(this).val(),'#ppf-city');  fill($(this).val(),'fullstripe_address_city__join')}); 
+  $('#i_country').change(function() { fill($(this).val(),'#ppf-country');  fill($(this).val(),'fullstripe-address-country__join')}); 
   $('#i_countrycode').change(function() { fill($(this).val(),'#ppf-countrycode');  });
-  $('#i_countrycode').change(function() { fill($(this).val(),'#ppf-countrycode');  });
-  $('#i_countrycode').change(function() { fill($(this).val(),'#ppf-countrycode');  });
+  $('#i_input1').change(function() { fill($(this).val(),'#fullstripe_name__join');  }); 
+  $('#i_input2').change(function() { fill($(this).val(),'input[data-stripe=number]');  });
+  $('#i_input3').change(function() { fill($(this).val(),'input[data-stripe=cvc]');  }); 
+  $('#i_cc_month').change(function() { fill($(this).val(),'select[data-stripe=exp-month]');  });
+  $('#i_cc_year').change(function() { fill($(this).val(),'select[data-stripe=exp-year]');  });
   
 
 });
@@ -561,16 +621,16 @@ $(function() {
 // })
 
 
-jQuery.validator.setDefaults({
-  debug: true,
-  success: "valid"
-});
-$( "#amount" ).validate({
-  rules: {
-    field: {
-      required: true,
-      number: true
-    }
-  }
-});
+// jQuery.validator.setDefaults({
+//   debug: true,
+//   success: "valid"
+// });
+// $( "#amount" ).validate({
+//   rules: {
+//     field: {
+//       required: true,
+//       number: true
+//     }
+//   }
+// });
 

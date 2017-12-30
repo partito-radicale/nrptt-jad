@@ -1,5 +1,6 @@
 <?php 
 
+/*
 function nrptt_join_stripe_from($args) {
     $output = '<form id="payment-form" action="buy.php" method="POST"><div id="payment-errors"></div>';
     $output .= '<label>Card Number</label>
@@ -13,7 +14,8 @@ function nrptt_join_stripe_from($args) {
 <input type="text" size="4">';
     $output .= '</form>';
     return $output;
-}
+};
+*/
 
 function nrptt_join_paypal_form($args) {
 	 $kind = 'text';
@@ -66,8 +68,8 @@ function nrptt_join_paypal_form($args) {
          style="background-color:#f7c44f;font-size:14px;font-family:\'Open Sans\',\'Helvetica Neue\',\'Helvetica\',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px"
          action="' . $paypal_url . '"
          method="post">' . $output ;
-	 $output .= '<input alt="Make payments with payPal - it\'s fast, free and secure!" name="submit"  src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"  type="image" /> </form>';
-	 $output = '<div class="block_paypal">' . $output . '</div>';
+	 $output .= '<input alt="Make payments with payPal - it\'s fast, free and secure!" name="submit"  src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"  type="hidden" /> </form>';
+	 $output = '<div class="paypal_join_block">' . $output . '</div>';
 	 return $output;
 };
 
@@ -88,7 +90,7 @@ function nrptt_join_pre_form($args) {
       <label class="title">Year of membership<span class="required">*</span></label>
       <div class="large">
         <span>
-          <select id="i_year" class="i_year" name="i_year" required="required">
+          <select id="i_year" class="i_year" name="i_year" required>
             <option id="i_yeary_select" selected="selected" value="" disabled="disabled">--- Select year of membership ---</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
@@ -100,7 +102,7 @@ function nrptt_join_pre_form($args) {
       <label class="title">Minimum, Recommended or Custom quote amount<span class="required">*</span></label>
       <div class="large">
         <span>
-          <select id="i_kind" class="i_kind" name="i_kind" required="required">
+          <select id="i_kind" class="i_kind" name="i_kind" required>
             <option selected="selected" value="-" disabled="disabled">--- Select kind of quote ---</option>
             <option value="1">recommended amount</option>
             <option value="0">minimum amount</option>
@@ -113,7 +115,7 @@ function nrptt_join_pre_form($args) {
       <label class="title">Member's country<span class="required">*</span></label>
       <div class="large">
         <span>
-          <select id="i_country" name="i_country" required="required">
+          <select id="i_country" name="i_country" required>
             <option selected="selected" value="" disabled="disabled">--- Select a country ---</option>
                     <option value="IT">Italy (minimum 200€- reccomended 590€)</option>
                     <option value="GB">United Kingdom (minimum 200€- reccomended 590€)</option>
@@ -309,7 +311,7 @@ function nrptt_join_pre_form($args) {
       </div>
     </div>
     <div class="element-input"><label class="title">Amount in Euros<span class="required">*</span></label>
-      <input id="amount" class="medium required" data-validation="number" type="text" name="input" required="required"/>
+      <input id="amount" class="medium required" type="text" name="input" required/>
       <label id="amount-less" class="subtitle">Amount is less than minimal fee.</label>
     </div>
     <div class="element-checkbox"><label class="title"></label></div>
@@ -575,38 +577,45 @@ function nrptt_join_pre_form($args) {
         <label class="subtitle">Country</label>
       </div>
     </div>
-    <div class="element-paychoice"><label class="title"></label>
-      <span class="CC">
+    <div class="element-checkbox">
+      <div class="column column1"><label><input type="checkbox" id="i_show" name="checkbox[]" value="1"/ ><span>&nbsp; Show this donation in the donor page?</span></label></div><span class="clearfix"></span>
+    </div>
+    <div class="element-textarea"><label class="title"></label><div class="item-cont"><textarea class="medium" id="i_say" name="textarea" cols="20" rows="5" placeholder="Tell others why you think supporting the NRPTT is important"></textarea><span class="icon-place"></span></div></div>
+    <div class="element-paychoice"><label class="title">Choose payment form:</label>
+      <span class="buttonCC medium">
         <button type="button" class="show_credit_card btn btn-success">Credit Card</button>
+      </span><span class="buttonPP medium">
+        <button type="button" class="show_paypal btn btn-success">Paypal</button>
       </span>
       <div class="pay_with_credit_card">
           <div class="element-separator"><hr><h3 class="section-break-title">Pay with Credit Cards</h3></div>        
-	        <div class="element-input"><label class="title">Cardholder Name<span class="required">*</span></label><input class="large" type="text" name="input1" /></div>
-		      <div class="element-input"><label class="title">Card Number<span class="required">*</span></label><input class="large" type="text" name="input2" /></div>
+	        <div class="element-input"><label class="title">Cardholder Name<span class="required">*</span></label>
+             <input id="i_input1" class="large" type="text" /></div>
+		      <div class="element-input"><label class="title">Card Number<span class="required">*</span></label><input class="large" type="password" id="i_input2" /></div>
 		            <div class="element-CC"><label class="title"></label>
             <span class="CVV">
-              <input class="CVV" type="text" name="CVV" />
+              <input class="CVV" type="text" id="i_input3" />
               <label class="subtitle">CVV<span class="required">*</span></label>
             </span>
             <span class="CC_Month">
-              <select name="cc_month" required="required">
-	      	              <option value="Jan">Jan</option>
-			      	              <option value="Feb">Feb</option>
-					      	              <option value="Mar">Mar</option>
-							      	              <option value="Apr">Apr</option>
-									      	              <option value="Maj">Maj</option>
-											      	              <option value="Jun">Jun</option>
-													      	              <option value="Jul">Jul</option>
-															      	              <option value="Aug">Aug</option>
-																	      	              <option value="Sep">Sep</option>
-																			      	              <option value="Oct">Oct</option>
-																					      	              <option value="Nov">Nov</option>
-																							      	              <option value="Dic">Dic</option>
+              <select id="i_cc_month" required="required">
+	      	              <option value="01">Jan</option>
+			      	              <option value="02">Feb</option>
+					      	              <option value="03">Mar</option>
+							      	              <option value="04">Apr</option>
+									      	              <option value="05">Maj</option>
+											      	              <option value="06">Jun</option>
+													      	              <option value="07">Jul</option>
+															      	              <option value="08">Aug</option>
+																	      	              <option value="09">Sep</option>
+																			      	              <option value="10">Oct</option>
+																					      	              <option value="11">Nov</option>
+																							      	              <option value="12">Dic</option>
               </select>
               <label class="subtitle">Month<span class="required">*</span></label>
             </span>
             <span class="CC_Year">
-              <select name="cc_year">
+              <select id="i_cc_year">
 	      	              <option value="2017">2017</option>
 			      	              <option value="2018">2018</option>
 					      	              <option value="2019">2019</option>
@@ -632,11 +641,10 @@ function nrptt_join_pre_form($args) {
             </span>
             </div>
 	          <div class="element-input">
-            <button type="button" class="btn btn-success">Join</button>
+            <button id="submit-pay-stripe" type="button" class="btn btn-success">Join</button>
           </div>        
         </div>
-      <div class="payment_with_paypal">
-
+      <div class="pay_with_paypal">
           <div class="element-separator"><hr><h3 class="section-break-title">Payment with Paypal</h3></div>        
         <span class="CC">
           <button id="submit-pay-pp"  type="button" class="btn btn-success">Pay</button>

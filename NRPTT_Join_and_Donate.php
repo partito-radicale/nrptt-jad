@@ -56,7 +56,7 @@ function nrptt_form_join($args) {
   $output = ob_get_contents();
   ob_end_clean();
   $output .= nrptt_join_paypal_form($args);
-  $output .= nrptt_join_stripe_from($args);
+  // $output .= nrptt_join_stripe_from($args);
   // $output .= nrptt_join_post_form($args);
   return $output;
 };
@@ -245,20 +245,23 @@ function wp_paypal_payment_init() {
 function nrptt_plugin_enqueue_jquery() {
     wp_deregister_script('jquery');
     wp_deregister_script('jquery-form');
-    wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js', false, null, true);
+    wp_deregister_script('jquery-validate-min');
+    wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', false, null, true);
     wp_register_script('jquery-form', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js', false, null, true);
+    wp_enqueue_script( 'jquery-validate-min', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js', false, null, true);
+
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'jquery-form');
+    wp_enqueue_script( 'jquery-validate');
     wp_enqueue_style(  'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
     wp_enqueue_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
-    wp_enqueue_script( 'cookie_js', 'https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js');
-    wp_enqueue_script( 'jqvalidate_js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js');
-    wp_enqueue_script( 'jqvalidate_add_js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js');
     wp_enqueue_script( 'bootstrapselect_js', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js');
+    wp_enqueue_script( 'cookie_js', 'https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js');
+    // wp_enqueue_script( 'jqvalidate_add_js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js');
 //    wp_enqueue_script( 'card_js', 'https://cdnjs.cloudflare.com/ajax/libs/card/1.3.1/js/card.min.js');
 //    wp_enqueue_script( 'nrptt_sb_js', NRPTT_JAD_PLUGIN_URL . '/nrptt-join/nrptt-default-skyblue.js' );
     wp_enqueue_script( 'nrptt_js', NRPTT_JAD_PLUGIN_URL . '/nrptt-join/nrptt-join.js' );
-    wp_enqueue_script( 'stripe_js', 'https://js.stripe.com/v2/' );
+//    wp_enqueue_script( 'stripe_js', 'https://js.stripe.com/v2/' );
 
 }
 
@@ -269,7 +272,7 @@ if (!is_admin()) {
     add_filter('widget_text', 'do_shortcode');
 }
 
-add_action('init', 'nrptt_plugin_enqueue_jquery');
+add_action('wp_enqueue_scripts', 'nrptt_plugin_enqueue_jquery');
 add_action('init', 'wp_paypal_payment_init');
 
 
