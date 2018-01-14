@@ -1,0 +1,495 @@
+# WordPress Blank Pot
+# Copyright (C) 2014 ...
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: NRPTT Join\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2018-01-14 17:47+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: NRPTT Lang Team <translations@nrptt.org>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/partials/class-nrptt-jad-general-setting.php:9
+msgid "NRPTT Paypal Email address"
+msgstr "Indirizzo Email di Paypal per NRPTT"
+
+#: admin/partials/class-nrptt-jad-general-setting.php:9
+msgid "This is the Paypal Email address where the payments will go"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:10
+msgid "Paypal Platform"
+msgstr "Piattaforma di PayPal"
+
+#: admin/partials/class-nrptt-jad-general-setting.php:10
+msgid "Working platform for paypal (Test/Production)."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:11
+msgid "Sandbox"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:11
+msgid "Production"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:12
+msgid "Choose Payment Currency"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:12
+msgid ""
+"This is the currency for your visitors to make Payments or Donations in."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:14
+msgid "Return URL from PayPal"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:14
+msgid ""
+"Enter a return URL (could be a Thank You page). PayPal will redirect "
+"visitors to this page after Payment."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:15
+msgid "Cancel URL from PayPal"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:15
+msgid ""
+"Enter a cancel URL PayPal will redirect visitors to this page if they click "
+"on the cancel link."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:20
+msgid "You do not have permission to access this settings page."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:26
+msgid ""
+"Error! Nonce Security Check Failed! Go back to settings menu and save the "
+"settings again."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:41
+msgid "Options Updated!"
+msgstr "Opzioni aggiornate"
+
+#: admin/partials/class-nrptt-jad-general-setting.php:46
+msgid "NRPTT Join and Donate"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-general-setting.php:46
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: admin/partials/class-nrptt-jad-general-setting.php:49
+msgid ""
+"For usage documentation and updates, please visit the plugin page at the "
+"following URL:"
+msgstr ""
+"Per ulteriori informazioni vinvitiamo a visitare il nostro  sito web al "
+"seguente indirizzo :"
+
+#: admin/partials/class-nrptt-jad-general-setting.php:77
+msgid "Update options"
+msgstr "Salva le impostazioni"
+
+#: admin/partials/class-nrptt-jad-html-output.php:321
+msgid "Select a page&hellip;"
+msgstr "Selezionare una pagina&hellip;"
+
+#: admin/partials/class-nrptt-jad-post-types.php:56
+#: admin/partials/class-nrptt-jad-post-types.php:58
+#: admin/partials/class-nrptt-jad-post-types.php:59
+msgid "PayPal IPN Types"
+msgstr "Tipi di PayPal IPN"
+
+#: admin/partials/class-nrptt-jad-post-types.php:60
+msgctxt "Admin menu name"
+msgid "PayPal IPN Types"
+msgstr "Tipi di PayPal IPN"
+
+#: admin/partials/class-nrptt-jad-post-types.php:61
+msgid "Search PayPal IPN Types"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:62
+msgid "All PayPal IPN Types"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:63
+msgid "Parent PayPal IPN Types"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:64
+msgid "Parent PayPal IPN Types:"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:65
+msgid "Edit PayPal IPN Types"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:66
+msgid "Update PayPal IPN Types"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:67
+msgid "Add New PayPal IPN Types"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:68
+msgid "New PayPal IPN Types Name"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:94
+#: admin/partials/class-nrptt-jad-post-types.php:95
+msgid "PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:96
+msgctxt "Admin menu name"
+msgid "PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:97
+msgid "Add PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:98
+msgid "Add New PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:99
+msgid "Edit"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:100
+#: admin/partials/class-nrptt-jad-post-types.php:102
+#: admin/partials/class-nrptt-jad-post-types.php:103
+msgid "View PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:101
+msgid "New PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:104
+msgid "Search PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:105
+msgid "No PayPal IPN found"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:106
+msgid "No PayPal IPN found in trash"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:107
+msgid "Parent PayPal IPN"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:109
+msgid "This is where you can add new IPN to your store."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:150
+#, php-format
+msgid " <span class=\"count\">(%s)</span>"
+msgid_plural " <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:166
+msgid "Show All Transaction"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:185
+msgid "Show all Payment Statuses"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:277
+msgctxt "paypal-ipn"
+msgid "Transaction ID"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:278
+msgctxt "paypal-ipn"
+msgid "Invoice ID"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:279
+msgctxt "paypal-ipn"
+msgid "Date"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:280
+msgctxt "paypal-ipn"
+msgid "Name / Company"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:281
+msgid "Amount"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:282
+msgid "Transaction Type"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:283
+msgid "Payment Status"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:453
+msgid "PayPal IPN Fields"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:466
+#: admin/partials/class-nrptt-jad-post-types.php:472
+msgid "IPN Field Name"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:467
+#: admin/partials/class-nrptt-jad-post-types.php:473
+msgid "IPN Field Value"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:518
+msgid "PayPal IPN Raw Data"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:528
+msgid "Hook Function Snippet"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:555
+msgid "Extending PayPal IPN for WordPress"
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:556
+msgid ""
+"PayPal IPN for WordPress provides a <a target=\"_blank\" href=\"https://www."
+"angelleye.com/paypal-ipn-wordpress-hooks/?"
+"utm_source=nrptt_jad&utm_medium=docs_link_ipn_details&utm_campaign=nrptt_jad"
+"\">wide variety of developer hooks</a> that you can use within your theme or "
+"plugins to trigger your own function(s).  There are hooks available based on "
+"the IPN type as well as the payment status of a transaction."
+msgstr ""
+
+#: admin/partials/class-nrptt-jad-post-types.php:557
+msgid ""
+"The code snippet below is a template that you can use to quickly setup your "
+"own hook functions.  You can see that it prepares all of the possible data "
+"for the IPN in PHP variables for you for easy access to the values within "
+"your code.  Just set the \"hook_name\" to the hook you would like to use to "
+"trigger the function, and set the \"function_name\" to the name of the "
+"function you’re using in your theme/plugin."
+msgstr ""
+
+#: admin/partials/nrptt-jad-admin-display.php:37
+msgid "General"
+msgstr ""
+
+#: admin/partials/nrptt-jad-admin-display.php:37
+msgid "Info"
+msgstr ""
+
+#: includes/class-nrptt-jad.php:94
+msgid "Configure"
+msgstr ""
+
+#: includes/class-nrptt-jad.php:95
+msgid "Docs"
+msgstr ""
+
+#: includes/class-nrptt-jad.php:96
+msgid "Support"
+msgstr ""
+
+#: includes/class-nrptt-jad.php:97
+msgid "Write a Review"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:51
+#, php-format
+msgid "%s (minum %d reccomended %d)"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:155
+msgid "Membership details"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:156
+msgid "Year of membership"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:158
+msgid "Minimum, Recommended or Custom quote amount"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:159
+msgid "--- Select kind of membership ---"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:160
+msgid "Country of the member"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:162
+#: public/partials/nrptt-jad--public-display.php:293
+msgid "Amount in Euro"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:162
+msgid "Amount is less than minimum fee"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:163
+msgid "Member details"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:164
+#: public/partials/nrptt-jad--public-display.php:295
+msgid "First Name"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:165
+#: public/partials/nrptt-jad--public-display.php:296
+msgid "Last Name"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:166
+#: public/partials/nrptt-jad--public-display.php:292
+msgid "Email"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:167
+#: public/partials/nrptt-jad--public-display.php:297
+msgid "Phone Code"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:169
+#: public/partials/nrptt-jad--public-display.php:299
+msgid "Phone"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:170
+#: public/partials/nrptt-jad--public-display.php:300
+msgid "Stret Address"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:171
+#: public/partials/nrptt-jad--public-display.php:301
+msgid "Address Line 2"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:172
+#: public/partials/nrptt-jad--public-display.php:302
+msgid "City"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:173
+#: public/partials/nrptt-jad--public-display.php:303
+msgid "State / Province / Region"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:174
+#: public/partials/nrptt-jad--public-display.php:304
+msgid "Postal / Zip Code"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:175
+#: public/partials/nrptt-jad--public-display.php:305
+msgid "Country"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:176
+msgid "Tell us why you are joining NRPTT"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:177
+#: public/partials/nrptt-jad--public-display.php:307
+msgid "A message from you"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:177
+#: public/partials/nrptt-jad--public-display.php:307
+msgid "Tell others why you think supporting the NRPTT is important"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:178
+#: public/partials/nrptt-jad--public-display.php:308
+msgid "Show this donation in the donor page?"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:190
+msgid "Join"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:191
+msgid "Donate"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:201
+msgid "Pay with CREDIT CARD…"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:202
+msgid "… or with PAYPAL"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:215
+msgid "Pay with Credit Cards"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:225
+msgid "Pay with Paypal"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:228
+msgid "Pay"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:294
+msgid "Donor details (optional)"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:306
+msgid "Tell us why you are donating to NRPTT"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:334
+msgid "--- Select a country ---"
+msgstr ""
+
+#: public/partials/nrptt-jad--public-display.php:334
+msgid "--- Others ---"
+msgstr ""
+
+#~ msgid "Join form for NRPTT"
+#~ msgstr "Modulo di adesione per NRPTT"
+
+#~ msgid "US Dollar"
+#~ msgstr "Dollaro US"
+
+#~ msgid "Make payments with payPal - it\\'s fast, free and secure!"
+#~ msgstr "Paga con Paypal - È veloce, sicuro e gratuito!"
+
+#~ msgid "NRPTT"
+#~ msgstr "PRNTT"
