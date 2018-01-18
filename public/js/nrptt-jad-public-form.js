@@ -22,7 +22,7 @@ $(function() {
 
   // define functions
   var distribute = function($from,$to,$other) {
-    var $inval = $($from).val()
+    var $inval = $($from).val().replace(',','.');
     $($to).val($inval);
     $($other).val($inval);
   };
@@ -76,9 +76,9 @@ $(function() {
     var $kind = "CUST";
     var $pre = 'j';
     var $show = "X-SHOW";
-    var $amount = $("#d_amount").val();
+    var $amount = $("#d_amount").val().replace(',','.');
     if ( $join ) {
-      $amount = $("#s_amount").val();
+      $amount = $("#s_amount").val().replace(',','.');
       $pre = 'i';
       if ( $("#"+$pre+"_kind").val()  === "1" ) {
         $kind = "RACC";
