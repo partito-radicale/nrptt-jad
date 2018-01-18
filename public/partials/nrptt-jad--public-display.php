@@ -236,12 +236,12 @@ class NRPTT_JAD_Public_Display {
         $kind = 'text';
         $variables = array(
             'cmd' => '_xclick',
-            'business' => 'pr-merch@nrptt.org',
+            'business' => get_option('nrptt_pp_payment_email'),
             "custom" => "" ,
             "item_name" => "item name" ,
             "transaction_subject" => "subject" ,
             "address_name" => "" ,
-            "currency_code" => "EUR" ,
+            "currency_code" => get_option('paypal_payment_currency') ,
             "charset" => "utf-8" ,
             "address_override" => "0" ,
             "first_name" => "" ,
@@ -263,12 +263,12 @@ class NRPTT_JAD_Public_Display {
             "os1" => "" ,
             "lc" => "it" ,
             "rm" => "2" ,
-            "bn" => "TipsandTricks_SP" ,
+            "bn" => "RadicalParty" ,
             "no_shipping" => "0" ,
             "no_note" => "0" ,
             "notify_url" => "http://iscr.nvrp.org/?AngellEYE_Paypal_Ipn_For_Wordpress&action=ipn_handler" ,
-            "return" => "http://iscr.nvrp.org/return-page/" ,
-            "cancel_return" => "http://iscr.nvrp.org/cancel-page/" ,
+            "return" => get_option('wp_pp_return_url'),
+            "cancel_return" => get_option('wp_pp_cancel_url'),
         );
         foreach ($variables as $key => $value) {
             $output .= '    <input id="ppf-' . $key . '" name="' . $key . '" type="' . $kind . '" value="'. $value . '" />';
