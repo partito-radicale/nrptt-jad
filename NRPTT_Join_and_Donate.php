@@ -85,7 +85,6 @@ function run_nrptt_jad() {
     $plugin->run();
 }
 
-run_nrptt_jad();
 
 add_action('paypal_ipn_for_wordpress_ipn_response_handler', 'nrptt_ipn_handler', 10, 3);
 function nrptt_ipn_handler($posted) {
@@ -138,5 +137,8 @@ function nrptt_ipn_handler($posted) {
             * else you might want to automate based on this type of IPN.
             */
 
-            wp_mail('exedre@gmail.com','PAYPAL IPN RECEIVED: ' . $item_name,print_r($posted, true));
-}
+            wp_mail('pr-paypal@nrptt.org','PAYPAL IPN RECEIVED: ' . $item_name,print_r($posted, true));
+};
+
+
+run_nrptt_jad();

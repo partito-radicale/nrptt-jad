@@ -116,6 +116,9 @@ $(function() {
     fill_item();
     fill_custom();
 
+    fill($('#j_first_name').val(),'#ppf-first_name'); 
+    fill($('#j_last_name').val(),'#ppf-last_name'); 
+
     // Contatti
     fill($('#j_email').val(),'#ppf-email'); 
     fill($('#j_email').val(),'input#fullstripe_email__join');
@@ -156,6 +159,9 @@ $(function() {
     fill_person_contacts();
     fill_item();
     fill_custom();
+
+    fill($('#i_first_name').val(),'#ppf-first_name'); 
+    fill($('#i_last_name').val(),'#ppf-last_name'); 
 
     // Contatti
     fill($('#i_email').val(),'#ppf-email'); 
@@ -580,7 +586,7 @@ $(function() {
     $("div.pay_with_paypal").hide();
     $("div.pay_with_credit_card").hide();    
     $("div.stripe_join_block").hide();
-    $("div.paypal_join_block").hide();
+    $("div.paypal_join_block").show();
   }
 
   hide_inner_forms();
@@ -696,8 +702,8 @@ $(function() {
   });
 
   $("#d_amount").change(function() {
-    fill($(this).val(),'#ppf-amount');
-    fill($(this).val(),'#fullstripe-custom-amount__join');
+    fill($(this).val().replace(',','.'),'#ppf-amount');
+    fill($(this).val().replace(',','.'),'#fullstripe-custom-amount__join');
   });
 
   $("#s_amount").change(function() {
@@ -709,9 +715,9 @@ $(function() {
         $("#amount-less").hide();
       }
     };
-    fill($(this).val(),'#ppf-amount');
-    fill($(this).val(),'#fullstripe-custom-amount__join');
-    $('#submit-pay-pp').text('Pay with Paypal — ('+ $(this).val() + ' € )').trigger('change');    
+    fill($(this).val().replace(',','.'),'#ppf-amount');
+    fill($(this).val().replace(',','.'),'#fullstripe-custom-amount__join');
+    $('#submit-pay-pp').text('Pay with Paypal — ('+ $(this).val().replace(',','.') + ' € )').trigger('change');    
   });
 
 });
